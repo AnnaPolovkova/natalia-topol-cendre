@@ -38,20 +38,6 @@ images/
 index.html           // Главная страница
 ```
 
-## 🚀 Быстрый старт
-
-1. Откройте `index.html` в браузере
-2. Замените фото в `images/natalia.jpg` на реальное фото
-3. Обновите ссылку в `js/ui.js`:
-   ```javascript
-   var BOOKING_URL = 'ваша-ссылка-календли-или-другое';
-   ```
-
-## 📱 Социальные сети
-
-- [Instagram](https://www.instagram.com/natalia.talk)
-- [Telegram](https://t.me/natalia_talk_nomad_notes)
-
 ## 🎯 Особенности
 
 - ✨ Плавные анимации при загрузке и скролле
