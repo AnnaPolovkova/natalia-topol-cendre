@@ -1,0 +1,38 @@
+/* ============================================================
+   VARIABLES.CSS — Все CSS-переменные и подключение шрифтов
+   Здесь меняешь цвета и шрифты — всё обновится сразу везде
+   ============================================================ */
+
+:root {
+  /* Цветовая палитра */
+  --color-cream:       #F5F0E8;
+  --color-sand:        #E8DFD0;
+  --color-warm-brown:  #8B6F5E;
+  --color-dark-brown:  #3D2B1F;
+  --color-terracotta:  #B5614A;
+  --color-sage:        #7A8C7E;
+  --color-gold:        #C4A265;
+  --color-text:        #2C1F17;
+
+  /* Типографика */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'Montserrat', Arial, sans-serif;
+
+  /* Размеры шрифтов */
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 14px;
+  --text-md:   18px;
+
+  /* Отступы */
+  --spacing-xs:  8px;
+  --spacing-sm:  16px;
+  --spacing-md:  32px;
+  --spacing-lg:  60px;
+  --spacing-xl:  100px;
+
+  /* Переходы */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow:   0.8s ease;
+}

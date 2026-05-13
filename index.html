@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Наталья Тополь-Сандр — Коуч PCC ICF</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- CSS файлы — СТРОГО В ТАКОМ ПОРЯДКЕ -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+  <!-- 1. HERO СЕКЦИЯ -->
+  <section class="hero" id="hero">
+    <div class="hero__left">
+      <!-- Три ключевых слова -->
+      <div class="hero__words">
+        <span class="hero__word">Адаптация</span>
+        <span class="hero__dot"></span>
+        <span class="hero__word">Смысл</span>
+        <span class="hero__dot"></span>
+        <span class="hero__word">Движение</span>
+      </div>
+
+      <!-- Имя -->
+      <h1 class="hero__name">
+        Наталья<br>
+        <em>Тополь-Сандр</em>
+      </h1>
+
+      <!-- Сертификации -->
+      <div class="hero__titles">
+        <span class="title-line">Коуч PCC ICF</span>
+        <span class="title-line">Супервизор EMCC</span>
+        <span class="title-line">Специалист по межкультурной коммуникации</span>
+      </div>
+    </div>
+
+    <!-- Фото (правая половина) -->
+    <div class="hero__right">
+      <!-- ЗАМЕНИ src на реальное фото Наты -->
+      <img src="images/natalia.jpg" alt="Наталья Тополь-Сандр" class="hero__photo">
+    </div>
+  </section>
+
+  <!-- Декоративная линия-разделитель -->
+  <div class="divider"></div>
+
+  <!-- 2. ЦИТАТА -->
+  <section class="quote-section" id="quote">
+    <blockquote class="quote__text">
+      «Когда ты чего-то хочешь, вся Вселенная помогает тебе достичь этого.»
+    </blockquote>
+    <cite class="quote__author">— Алхимик</cite>
+  </section>
+
+  <!-- 3. РЕЗУЛЬТАТЫ -->
+  <section class="results-section" id="results">
+    <p class="section-label reveal">Результаты</p>
+    <h2 class="section-title reveal">В результате работы<br>со мной вы сможете:</h2>
+
+    <div class="results-grid">
+      <!-- Каждый пункт: класс reveal для анимации при скролле -->
+      <div class="result-item reveal">
+        <span class="result-item__number">01</span>
+        <p class="result-item__text">
+          Пройти адаптацию в новой стране с большей устойчивостью и опорой на себя
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">02</span>
+        <p class="result-item__text">
+          Вернуть ясность: кто вы, чего хотите и куда движетесь
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">03</span>
+        <p class="result-item__text">
+          Снизить тревогу, выйти из состояния «застряла» и начать действовать
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">04</span>
+        <p class="result-item__text">
+          Увидеть свои привычные сценарии и выстроить новые стратегии мышления, смыслов и действий
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">05</span>
+        <p class="result-item__text">
+          Начать расти в доходе через более уверенное присутствие в профессиональной среде
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">06</span>
+        <p class="result-item__text">
+          Соединить цели, ценности и реальные шаги в жизни и бизнесе
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">07</span>
+        <p class="result-item__text">
+          Свободнее проявляться на иностранном языке в профессиональной и социальной среде
+        </p>
+      </div>
+      <div class="result-item reveal">
+        <span class="result-item__number">08</span>
+        <p class="result-item__text">
+          Почувствовать момент, когда «текущего уровня становится мало», и перейти на следующий этап
+        </p>
+      </div>
+      <!-- Последний пункт — на тёмном фоне, на всю ширину -->
+      <div class="result-item result-item--dark result-item--full reveal">
+        <span class="result-item__number">09</span>
+        <p class="result-item__text">
+          Создать ощущение внутреннего дома — независимо от страны проживания
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Декоративная линия -->
+  <div class="divider"></div>
+
+  <!-- 4. CTA — ЗАПИСАТЬСЯ -->
+  <section class="cta-section" id="contact">
+    <div class="cta__left reveal">
+      <p class="section-label">Начало пути</p>
+      <p class="cta__tagline">
+        Любое сотрудничество начинается<br>со встречи-знакомства
+      </p>
+      <p class="cta__description">
+        Это пространство, где мы можем познакомиться, понять ваш запрос
+        и решить, подходим ли мы друг другу для совместной работы.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <!-- Карточка встречи -->
+      <div class="meeting-card">
+        <span class="meeting-card__tag">Онлайн-встреча · Zoom</span>
+        <h3 class="meeting-card__title">Встреча-знакомство</h3>
+        <p class="meeting-card__duration">30 минут · Бесплатно</p>
+        <ul class="meeting-card__list">
+          <li>Формулируем ваш запрос и желаемый результат</li>
+          <li>Разбираем текущую ситуацию</li>
+          <li>Определяем подходящий формат работы</li>
+          <li>Обсуждаем возможные варианты взаимодействия</li>
+          <li>Понимаем, насколько нам комфортно работать вместе</li>
+        </ul>
+
+        <!-- КНОПКА: замени href на ссылку Calendly или Zoom -->
+        <a href="#" class="btn btn--primary" id="booking-btn">
+          Записаться
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФУТЕР -->
+  <footer class="footer">
+    <div class="footer__left">
+      <span class="footer__name">Наталья Тополь-Сандр</span>
+      <span class="footer__tagline">Коуч · Супервизор · Межкультурная коммуникация</span>
+    </div>
+    <div class="footer__social">
+      <a href="https://www.instagram.com/natalia.talk?igsh=dDB1YWF4Z3Z2dzZp" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+        </svg>
+      </a>
+      <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a11.955 11.955 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.063-1.226-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.485-1.313.474-.431-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.155.201-.315.468-.415 1.897-.644 5.877-2.27 7.815-3.83.848-.572 1.54-.914 2.267-.918z"/>
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- JS файлы — В КОНЦЕ BODY -->
+  <script src="js/scroll.js"></script>
+  <script src="js/ui.js"></script>
+
+</body>
+</html>

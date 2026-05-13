@@ -1,0 +1,139 @@
+/* ============================================================
+   LAYOUT.CSS — Секции, сетки, отступы, адаптивность
+   ============================================================ */
+
+/* === HERO === */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Тонкий градиентный фон-атмосфера */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(196,162,101,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 20% 80%, rgba(122,140,126,0.10) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__right {
+  position: relative;
+  background: var(--color-sand);
+  overflow: hidden;
+}
+
+.hero__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Слабое тёмное виньетирование поверх фото */
+.hero__right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 60%, rgba(61,43,31,0.15) 100%);
+  pointer-events: none;
+}
+
+/* === QUOTE === */
+.quote-section {
+  padding: var(--spacing-xl) 80px;
+  text-align: center;
+  position: relative;
+  background: var(--color-dark-brown);
+  overflow: hidden;
+}
+
+/* Большая декоративная кавычка */
+.quote-section::before {
+  content: '❝';
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 160px;
+  color: var(--color-gold);
+  opacity: 0.06;
+  font-family: var(--font-display);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* === RESULTS === */
+.results-section {
+  padding: var(--spacing-xl) 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--color-sand);
+}
+
+/* === CTA === */
+.cta-section {
+  background: var(--color-sand);
+  padding: var(--spacing-xl) 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* === FOOTER === */
+.footer {
+  background: var(--color-dark-brown);
+  padding: 48px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* === АДАПТИВНОСТЬ === */
+@media (max-width: 1024px) {
+  .hero__left { padding: 60px 40px; }
+  .results-section, .cta-section, .quote-section { padding: var(--spacing-lg) 40px; }
+  .footer { padding: 40px; }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero__left  { padding: 60px 24px; }
+  .hero__right { height: 340px; }
+
+  .results-grid           { grid-template-columns: 1fr; }
+  .cta-section            { grid-template-columns: 1fr; gap: 40px; }
+
+  .results-section,
+  .cta-section,
+  .quote-section { padding: var(--spacing-lg) 24px; }
+
+  .footer { padding: 32px 24px; flex-direction: column; text-align: center; }
+}

@@ -1,0 +1,67 @@
+/* ============================================================
+   BASE.CSS — Сброс стилей, базовая типографика, утилиты
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Типографика */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.15;
+}
+
+/* Утилиты */
+.section-label {
+  font-size: var(--text-xs);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 300;
+  color: var(--color-dark-brown);
+  margin-bottom: var(--spacing-lg);
+  max-width: 600px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-gold), transparent);
+  opacity: 0.5;
+}

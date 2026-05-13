@@ -1,0 +1,67 @@
+/* ============================================================
+   ANIMATIONS.CSS — Все анимации: загрузка и scroll-reveal
+   ============================================================ */
+
+/* === HERO — анимации при загрузке страницы === */
+/* Три слова появляются снизу вверх с задержкой */
+.hero__word {
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+.hero__word:nth-child(1) { animation-delay: 0.1s; }
+.hero__word:nth-child(3) { animation-delay: 0.3s; }
+.hero__word:nth-child(5) { animation-delay: 0.5s; }
+
+.hero__dot {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+.hero__dot:nth-child(2) { animation-delay: 0.2s; }
+.hero__dot:nth-child(4) { animation-delay: 0.4s; }
+
+/* Имя */
+.hero__name {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.6s forwards;
+}
+
+/* Сертификации */
+.hero__titles {
+  opacity: 0;
+  animation: fadeUp 0.9s ease 0.8s forwards;
+}
+
+/* === SCROLL REVEAL — базовые состояния === */
+/* JS добавляет класс .visible когда элемент входит во вьюпорт */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Задержка для соседних элементов внутри одной секции */
+.reveal:nth-child(2) { transition-delay: 0.1s; }
+.reveal:nth-child(3) { transition-delay: 0.2s; }
+.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* === KEYFRAMES === */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
