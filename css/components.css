@@ -64,7 +64,7 @@
   font-size: var(--text-xs);
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--color-sage);
+  color: var(--color-dark-brown);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -187,6 +187,57 @@
   line-height: 1.7;
   color: var(--color-text);
   padding-top: 6px;
+}
+
+/* Responsive improvements for Results section */
+@media (max-width: 1024px) {
+  .results-section {
+    padding: var(--spacing-lg) 40px;
+  }
+
+  .results-section .results-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+  }
+
+  .result-item {
+    padding: 24px;
+    gap: 16px;
+  }
+
+  .result-item__number {
+    font-size: 38px;
+    width: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .results-section {
+    padding: var(--spacing-lg) 20px;
+  }
+
+  .results-section .results-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .result-item__number {
+    font-size: 32px;
+    width: auto;
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+
+  .result-item__text {
+    font-size: 15px;
+    line-height: 1.6;
+  }
 }
 
 /* === MEETING CARD === */
@@ -426,7 +477,6 @@
 .booking-modal.is-open .booking-modal__content {
   transform: translateY(0);
 }
-
 
 /* Золотая линия снизу при наведении */
 .btn--primary::after {
