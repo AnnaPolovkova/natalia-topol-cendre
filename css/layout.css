@@ -9,6 +9,7 @@
   grid-template-columns: 1fr 1fr;
   position: relative;
   overflow: hidden;
+  background-color: var(--color-cream);
 }
 
 /* Тонкий градиентный фон-атмосфера */
@@ -83,18 +84,23 @@
   padding: var(--spacing-xl) 80px;
   max-width: 1200px;
   margin: 0 auto;
+  background-color: var(--color-cream);
 }
 
-.results-grid {
+.results-section .results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2px;
   background: var(--color-sand);
 }
 
+.results-section .result-item {
+  background: var(--color-cream);
+}
+
 /* === CTA === */
 .cta-section {
-  background: var(--color-sand);
+  background-color: var(--color-dark-brown);
   padding: var(--spacing-xl) 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -102,15 +108,30 @@
   align-items: start;
 }
 
+.cta-section .meeting-card {
+  background: var(--color-cream);
+}
+
+.cta-section .section-label {
+  color: var(--color-gold);
+}
+
+.cta-section .cta__tagline {
+  color: var(--color-cream);
+}
+
+.cta-section .cta__description {
+  color: rgba(245,240,232,0.7);
+}
+
 /* === FOOTER === */
 .footer {
   background: var(--color-dark-brown);
   padding: 48px 80px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 32px;
 }
 
 /* === АДАПТИВНОСТЬ === */
@@ -118,6 +139,12 @@
   .hero__left { padding: 60px 40px; }
   .results-section, .cta-section, .quote-section { padding: var(--spacing-lg) 40px; }
   .footer { padding: 40px; }
+  .partners-section { 
+    margin-left: -40px; 
+    margin-right: -40px; 
+    padding-left: 40px; 
+    padding-right: 40px; 
+  }
 }
 
 @media (max-width: 768px) {
@@ -133,7 +160,16 @@
 
   .results-section,
   .cta-section,
-  .quote-section { padding: var(--spacing-lg) 24px; }
+  .quote-section,
+  .services-section { padding: var(--spacing-lg) 24px; }
+  
+  .partners-section {
+    padding: var(--spacing-lg) 0;
+  }
+
+  .partners-content {
+    padding: 0 24px;
+  }
 
   .footer { padding: 32px 24px; flex-direction: column; text-align: center; }
 }

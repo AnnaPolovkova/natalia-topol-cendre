@@ -16,12 +16,10 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-
   <!-- 1. HERO СЕКЦИЯ -->
   <section class="hero" id="hero">
     <div class="hero__left">
-      <!-- Три ключевых слова -->
-      <div class="hero__words">
+      <div class="hero__words reveal">
         <span class="hero__word">Адаптация</span>
         <span class="hero__dot"></span>
         <span class="hero__word">Смысл</span>
@@ -29,164 +27,222 @@
         <span class="hero__word">Движение</span>
       </div>
 
-      <!-- Имя -->
-      <h1 class="hero__name">
+      <h1 class="hero__name reveal">
         Наталья<br>
         <em>Тополь-Сандр</em>
       </h1>
 
-      <!-- Сертификации -->
-      <div class="hero__titles">
+      <div class="hero__titles reveal">
         <span class="title-line">Коуч PCC ICF</span>
         <span class="title-line">Супервизор EMCC</span>
         <span class="title-line">Специалист по межкультурной коммуникации</span>
+        <span class="title-line">10 000+ часов в международных корпорациях и executive-среде</span>
+      </div>
+
+      <div class="hero__actions reveal">
+        <a href="#contact" class="btn btn--primary hero__cta">Записаться на встречу</a>
+        <div class="hero__socials">
+          <!-- Telegram -->
+          <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="Telegram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/natalia.talk?igsh=dDB1YWF4Z3Z2dzZp" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
-
-    <!-- Фото (правая половина) -->
     <div class="hero__right">
-      <!-- ЗАМЕНИ src на реальное фото Наты -->
       <img src="images/natalia.jpg" alt="Наталья Тополь-Сандр" class="hero__photo">
     </div>
   </section>
-
-  <!-- Декоративная линия-разделитель -->
-  <div class="divider"></div>
-
-  <!-- 2. ЦИТАТА -->
   <section class="quote-section" id="quote">
-    <blockquote class="quote__text">
-      «Когда ты чего-то хочешь, вся Вселенная помогает тебе достичь этого.»
-    </blockquote>
-    <cite class="quote__author">— Алхимик</cite>
+    <blockquote class="quote__text reveal">«Когда ты чего-то хочешь, вся Вселенная помогает тебе достичь этого.»</blockquote>
+    <cite class="quote__author reveal">— Алхимик</cite>
   </section>
-
-  <!-- 3. РЕЗУЛЬТАТЫ -->
   <section class="results-section" id="results">
     <p class="section-label reveal">Результаты</p>
     <h2 class="section-title reveal">В результате работы<br>со мной вы сможете:</h2>
-
     <div class="results-grid">
-      <!-- Каждый пункт: класс reveal для анимации при скролле -->
-      <div class="result-item reveal">
-        <span class="result-item__number">01</span>
-        <p class="result-item__text">
-          Пройти адаптацию в новой стране с большей устойчивостью и опорой на себя
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">02</span>
-        <p class="result-item__text">
-          Вернуть ясность: кто вы, чего хотите и куда движетесь
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">03</span>
-        <p class="result-item__text">
-          Снизить тревогу, выйти из состояния «застряла» и начать действовать
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">04</span>
-        <p class="result-item__text">
-          Увидеть свои привычные сценарии и выстроить новые стратегии мышления, смыслов и действий
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">05</span>
-        <p class="result-item__text">
-          Начать расти в доходе через более уверенное присутствие в профессиональной среде
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">06</span>
-        <p class="result-item__text">
-          Соединить цели, ценности и реальные шаги в жизни и бизнесе
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">07</span>
-        <p class="result-item__text">
-          Свободнее проявляться на иностранном языке в профессиональной и социальной среде
-        </p>
-      </div>
-      <div class="result-item reveal">
-        <span class="result-item__number">08</span>
-        <p class="result-item__text">
-          Почувствовать момент, когда «текущего уровня становится мало», и перейти на следующий этап
-        </p>
-      </div>
-      <!-- Последний пункт — на тёмном фоне, на всю ширину -->
-      <div class="result-item result-item--dark result-item--full reveal">
-        <span class="result-item__number">09</span>
-        <p class="result-item__text">
-          Создать ощущение внутреннего дома — независимо от страны проживания
-        </p>
-      </div>
+      <div class="result-item reveal"><span class="result-item__number">01</span><p class="result-item__text">Пройти адаптацию в новой стране с большей устойчивостью и опорой на себя</p></div>
+      <div class="result-item reveal"><span class="result-item__number">02</span><p class="result-item__text">Вернуть ясность: кто вы, чего хотите и куда движетесь</p></div>
+      <div class="result-item reveal"><span class="result-item__number">03</span><p class="result-item__text">Снизить тревогу, выйти из состояния «застряла» и начать действовать</p></div>
+      <div class="result-item reveal"><span class="result-item__number">04</span><p class="result-item__text">Увидеть свои привычные сценарии и выстроить новые стратегии мышления, смыслов и действий</p></div>
+      <div class="result-item reveal"><span class="result-item__number">05</span><p class="result-item__text">Начать расти в доходе через более уверенное присутствие в профессиональной среде</p></div>
+      <div class="result-item reveal"><span class="result-item__number">06</span><p class="result-item__text">Соединить цели, ценности и реальные шаги в жизни и бизнесе</p></div>
+      <div class="result-item reveal"><span class="result-item__number">07</span><p class="result-item__text">Свободнее проявляться на иностранном языке в профессиональной и социальной среде</p></div>
+      <div class="result-item reveal"><span class="result-item__number">08</span><p class="result-item__text">Почувствовать момент, когда «текущего уровня становится мало», и перейти на следующий этап</p></div>
+      <div class="result-item result-item--dark result-item--full reveal"><span class="result-item__number">09</span><p class="result-item__text">Создать ощущение внутреннего дома — независимо от страны проживания</p></div>
     </div>
   </section>
-
-  <!-- Декоративная линия -->
-  <div class="divider"></div>
-
-  <!-- 4. CTA — ЗАПИСАТЬСЯ -->
   <section class="cta-section" id="contact">
     <div class="cta__left reveal">
       <p class="section-label">Начало пути</p>
-      <p class="cta__tagline">
-        Любое сотрудничество начинается<br>со встречи-знакомства
-      </p>
-      <p class="cta__description">
-        Это пространство, где мы можем познакомиться, понять ваш запрос
-        и решить, подходим ли мы друг другу для совместной работы.
-      </p>
+      <p class="cta__tagline">Любое сотрудничество начинается<br>со встречи-знакомства</p>
+      <p class="cta__description">Это пространство, где мы можем познакомиться, понять ваш запрос
+        и решить, подходим ли мы друг другу для совместной работы.</p>
     </div>
-
     <div class="reveal">
-      <!-- Карточка встречи -->
       <div class="meeting-card">
         <span class="meeting-card__tag">Онлайн-встреча · Zoom</span>
         <h3 class="meeting-card__title">Встреча-знакомство</h3>
         <p class="meeting-card__duration">30 минут · Бесплатно</p>
         <ul class="meeting-card__list">
-          <li>Формулируем ваш запрос и желаемый результат</li>
           <li>Разбираем текущую ситуацию</li>
+          <li>Формулируем ваш запрос и желаемый результат</li>
           <li>Определяем подходящий формат работы</li>
           <li>Обсуждаем возможные варианты взаимодействия</li>
           <li>Понимаем, насколько нам комфортно работать вместе</li>
         </ul>
-
-        <!-- КНОПКА: замени href на ссылку Calendly или Zoom -->
-        <a href="#" class="btn btn--primary" id="booking-btn">
-          Записаться
-        </a>
+        <a href="#" class="bn btn--prtimary booking-trigger" id="booking-btn">Записаться</a>
       </div>
     </div>
   </section>
-
-  <!-- ФУТЕР -->
-  <footer class="footer">
-    <div class="footer__left">
-      <span class="footer__name">Наталья Тополь-Сандр</span>
-      <span class="footer__tagline">Коуч · Супервизор · Межкультурная коммуникация</span>
+  <section class="services-section" id="services">
+    <p class="section-label reveal">Форматы работы</p>
+    <h2 class="section-title reveal">С чем и как мы работаем</h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-card__top">
+          <span class="service-card__tag">Для всех</span>
+          <h3 class="service-card__title">Индивидуальное коучинговое сопровождение</h3>
+          <p class="service-card__frequency">1 раз в 7–14 дней</p>
+        </div>
+        <div class="service-card__packages">
+          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions">5 коуч-сессий</span><span class="service-package__price">500 €</span></div></div>
+          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions">10 коуч-сессий</span><span class="service-package__price">900 €</span></div><span class="service-package__badge">Популярный</span></div>
+          <p class="service-card__note">Возможна оплата каждой сессии отдельно</p>
+        </div>
+        <div class="service-card__results">
+          <p class="service-card__results-label">Результаты клиентов в долгосрочном сопровождении:</p>
+          <ul class="service-card__list">
+            <li>Переход из тревоги, хаоса и внутреннего смещения к устойчивости и ясности</li>
+            <li>Ощущение внутренней опоры и контакта с собой</li>
+            <li>Понимание, чего вы действительно хотите, а не «как правильно»</li>
+            <li>Выход из роли человека, который живёт обстоятельствами, в позицию Автора своей жизни</li>
+            <li>Адаптация в новой стране без потери себя и своей идентичности</li>
+            <li>Рост самоценности и уверенности в себе</li>
+            <li>Запуск или развитие своего проекта, блога, практики или бизнеса</li>
+            <li>Понимание, как проявляться и продавать себя экологично</li>
+            <li>Осознание своей ценности: «я — это не только мои инструменты и навыки»</li>
+            <li>Взрослая позиция, ответственность и способность выбирать себя</li>
+            <li>Спокойная «холодная голова» вместо постоянной перегрузки</li>
+            <li>Больше внутренней свободы, энергии и ощущения «я могу»</li>
+            <li>Умение слышать себя и принимать решения из себя, а не из страха</li>
+            <li>Ощущение соединённости с собой, своими смыслами и жизнью</li>
+            <li>Рост доходов</li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn--outline service-card__btn booking-trigger">Записаться</a>
+      </div>
+      <div class="service-card service-card--dark reveal">
+        <div class="service-card__top">
+          <span class="service-card__tag">Для коучей и специалистов</span>
+          <h3 class="service-card__title">Коучинговая супервизия</h3>
+          <p class="service-card__subtitle">Когда важно не только «работать с клиентом», но и сохранять контакт с собой в профессии.</p>
+        </div>
+        <div class="service-card__packages">
+          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions">1 сессия · до 1,5 часов</span><span class="service-package__price">130 €</span></div></div>
+          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions">5 сессий</span><span class="service-package__price">600 €</span></div></div>
+        </div>
+        <div class="service-card__results">
+          <p class="service-card__results-label">В супервизии мы:</p>
+          <ul class="service-card__list">
+            <li>Исследуем процессы между вами и клиентом</li>
+            <li>Разбираем сложные клиентские кейсы</li>
+            <li>Смотрим системно и ищем новые способы видеть ситуацию</li>
+            <li>Возвращаем ясность и устойчивость</li>
+            <li>Укрепляем вашу профессиональную опору</li>
+            <li>Исследуем свои реакции и ограничения</li>
+            <li>Сохраняем глубину без выгорания</li>
+          </ul>
+        </div>
+        <a href="#" class="btn btn--outline service-card__btn booking-trigger">Записаться</a>
+      </div>
     </div>
-    <div class="footer__social">
-      <a href="https://www.instagram.com/natalia.talk?igsh=dDB1YWF4Z3Z2dzZp" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
-        </svg>
-      </a>
-      <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="social-link" title="Telegram">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a11.955 11.955 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.063-1.226-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.485-1.313.474-.431-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.155.201-.315.468-.415 1.897-.644 5.877-2.27 7.815-3.83.848-.572 1.54-.914 2.267-.918z"/>
-        </svg>
-      </a>
+  </section>
+  <section class="partners-section" id="partners">
+    <div class="partners-content">
+      <p class="section-label reveal">Партнёры</p>
+      <h2 class="section-title reveal">Люди, которым я доверяю</h2>
+      <div class="partners-grid partners-grid--centered">
+        <div class="partner-card reveal">
+          <div class="partner-card__header">
+            <div class="partner-card__photo-wrap">
+              <img src="images/anna.jpg" alt="Анна Половкова" class="partner-card__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="partner-card__photo-placeholder">АП</div>
+            </div>
+            <div class="partner-card__meta">
+              <h3 class="partner-card__name">Анна Половкова</h3>
+              <span class="partner-card__role">Веб-разработчик · UX/UI дизайнер</span>
+            </div>
+          </div>
+          <p class="partner-card__bio">Студентка Computer Science, победитель национальных хакатонов и фронтенд-соревнований. Создаёт сайты, которые не просто красивы — они работают на вас: привлекают клиентов, отражают ваш стиль и оставляют впечатление.</p>
+          <ul class="partner-card__tags">
+            <li>Сайты-визитки</li>
+            <li>UX/UI дизайн</li>
+            <li>Figma · HTML/CSS/JS</li>
+          </ul>
+          <a href="https://www.linkedin.com/in/anna-polovkova/" target="_blank" rel="noopener noreferrer" class="partner-card__link">LinkedIn →</a>
+        </div>
+        <!-- МЕСТО ДЛЯ СЛЕДУЮЩЕГО ПАРТНЁРА -->
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer__top reveal">
+      <span class="footer__name">Наталья<br><em>Тополь-Сандр</em></span>
+      <div class="footer__socials">
+        <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 2L11 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/natalia.talk?igsh=dDB1YWF4Z3Z2dzZp" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer__bottom reveal">
+      <div class="footer__line"></div>
+      <div class="footer__meta">
+        <span class="footer__tagline">Коуч · Супервизор EMCC · Специалист по межкультурной коммуникации</span>
+      </div>
     </div>
   </footer>
+  <div class="booking-modal" id="booking-modal" role="dialog" aria-modal="true">
+    <div class="booking-modal__backdrop" id="booking-modal-backdrop"></div>
+    <div class="booking-modal__content">
+      <button class="booking-modal__close" id="booking-modal-close" aria-label="Закрыть">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
 
-  <!-- JS файлы — В КОНЦЕ BODY -->
+      <p class="booking-modal__eyebrow">Начало пути</p>
+      <h3 class="booking-modal__title">Выберите мессенджер</h3>
+      <p class="booking-modal__subtitle">Напишите Наталье, чтобы договориться о знакомстве, обменяться ожиданиями и выбрать удобный формат работы.</p>
+      <div class="booking-modal__actions">
+        <a href="#" id="booking-tg" target="_blank" rel="noopener noreferrer" class="booking-modal__action">Telegram</a>
+        <a href="#" id="booking-wa" target="_blank" rel="noopener noreferrer" class="booking-modal__action booking-modal__action--secondary">WhatsApp</a>
+      </div>
+    </div>
+  </div>
   <script src="js/scroll.js"></script>
   <script src="js/ui.js"></script>
-
 </body>
 </html>
