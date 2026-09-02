@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Коуч PCC ICF, супервизор EMCC, специалист по межкультурной коммуникации. Индивидуальное сопровождение, супервизия, Language Lab.">
   <title>Наталья Тополь-Сандр — Коуч PCC ICF</title>
 
   <!-- Google Fonts -->
@@ -19,28 +20,32 @@
   <!-- 1. HERO СЕКЦИЯ -->
   <section class="hero" id="hero">
     <div class="hero__left">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" class="lang-switch__btn is-active" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" class="lang-switch__btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
       <div class="hero__words reveal">
-        <span class="hero__word">Адаптация</span>
+        <span class="hero__word" data-i18n="hero.word.1">Адаптация</span>
         <span class="hero__dot"></span>
-        <span class="hero__word">Смысл</span>
+        <span class="hero__word" data-i18n="hero.word.2">Смысл</span>
         <span class="hero__dot"></span>
-        <span class="hero__word">Движение</span>
+        <span class="hero__word" data-i18n="hero.word.3">Движение</span>
       </div>
 
-      <h1 class="hero__name reveal">
+      <h1 class="hero__name reveal" data-i18n-html="hero.name">
         Наталья<br>
         <em>Тополь-Сандр</em>
       </h1>
 
       <div class="hero__titles reveal">
-        <span class="title-line">Коуч PCC ICF</span>
-        <span class="title-line">Супервизор EMCC</span>
-        <span class="title-line">Специалист по межкультурной коммуникации</span>
-        <span class="title-line">10 000+ часов в международных корпорациях и executive-среде</span>
+        <span class="title-line" data-i18n="hero.title.1">Коуч PCC ICF</span>
+        <span class="title-line" data-i18n="hero.title.2">Супервизор EMCC</span>
+        <span class="title-line" data-i18n="hero.title.3">Специалист по межкультурной коммуникации</span>
+        <span class="title-line" data-i18n="hero.title.4">10 000+ часов в международных корпорациях и executive-среде</span>
       </div>
 
       <div class="hero__actions reveal">
-        <a href="#contact" class="btn btn--primary hero__cta">Записаться на встречу</a>
+        <a href="#contact" class="btn btn--primary hero__cta" data-i18n="hero.cta">Записаться на встречу</a>
         <div class="hero__socials">
           <!-- Telegram -->
           <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="hero__social-link" aria-label="Telegram">
@@ -61,153 +66,153 @@
       </div>
     </div>
     <div class="hero__right">
-      <img src="images/natalia.jpg" alt="Наталья Тополь-Сандр" class="hero__photo">
+      <img src="images/natalia.jpg" alt="Наталья Тополь-Сандр" class="hero__photo" data-i18n-attr="alt:hero.photo.alt">
     </div>
   </section>
   <section class="quote-section" id="quote">
-    <blockquote class="quote__text reveal">«Когда ты чего-то хочешь, вся Вселенная помогает тебе достичь этого.»</blockquote>
-    <cite class="quote__author reveal">— Алхимик</cite>
+    <blockquote class="quote__text reveal" data-i18n="quote.text">«Когда ты чего-то хочешь, вся Вселенная помогает тебе достичь этого.»</blockquote>
+    <cite class="quote__author reveal" data-i18n="quote.author">— Алхимик</cite>
   </section>
   <section class="results-section" id="results">
-    <p class="section-label reveal">Результаты</p>
-    <h2 class="section-title reveal">В результате работы<br>со мной вы сможете:</h2>
+    <p class="section-label reveal" data-i18n="results.label">Результаты</p>
+    <h2 class="section-title reveal" data-i18n-html="results.title">В результате работы<br>со мной вы сможете:</h2>
     <div class="results-grid">
-      <div class="result-item reveal"><span class="result-item__number">01</span><p class="result-item__text">Пройти адаптацию в новой стране с большей устойчивостью и опорой на себя</p></div>
-      <div class="result-item reveal"><span class="result-item__number">02</span><p class="result-item__text">Вернуть ясность: кто вы, чего хотите и куда движетесь</p></div>
-      <div class="result-item reveal"><span class="result-item__number">03</span><p class="result-item__text">Снизить тревогу, выйти из состояния «застряла» и начать действовать</p></div>
-      <div class="result-item reveal"><span class="result-item__number">04</span><p class="result-item__text">Увидеть свои привычные сценарии и выстроить новые стратегии мышления, смыслов и действий</p></div>
-      <div class="result-item reveal"><span class="result-item__number">05</span><p class="result-item__text">Начать расти в доходе через более уверенное присутствие в профессиональной среде</p></div>
-      <div class="result-item reveal"><span class="result-item__number">06</span><p class="result-item__text">Соединить цели, ценности и реальные шаги в жизни и бизнесе</p></div>
-      <div class="result-item reveal"><span class="result-item__number">07</span><p class="result-item__text">Свободнее проявляться на иностранном языке в профессиональной и социальной среде</p></div>
-      <div class="result-item reveal"><span class="result-item__number">08</span><p class="result-item__text">Почувствовать момент, когда «текущего уровня становится мало», и перейти на следующий этап</p></div>
-      <div class="result-item result-item--dark result-item--full reveal"><span class="result-item__number">09</span><p class="result-item__text">Создать ощущение внутреннего дома — независимо от страны проживания</p></div>
+      <div class="result-item reveal"><span class="result-item__number">01</span><p class="result-item__text" data-i18n="results.1">Пройти адаптацию в новой стране с большей устойчивостью и опорой на себя</p></div>
+      <div class="result-item reveal"><span class="result-item__number">02</span><p class="result-item__text" data-i18n="results.2">Вернуть ясность: кто вы, чего хотите и куда движетесь</p></div>
+      <div class="result-item reveal"><span class="result-item__number">03</span><p class="result-item__text" data-i18n="results.3">Снизить тревогу, выйти из состояния «застряла» и начать действовать</p></div>
+      <div class="result-item reveal"><span class="result-item__number">04</span><p class="result-item__text" data-i18n="results.4">Увидеть свои привычные сценарии и выстроить новые стратегии мышления, смыслов и действий</p></div>
+      <div class="result-item reveal"><span class="result-item__number">05</span><p class="result-item__text" data-i18n="results.5">Начать расти в доходе через более уверенное присутствие в профессиональной среде</p></div>
+      <div class="result-item reveal"><span class="result-item__number">06</span><p class="result-item__text" data-i18n="results.6">Соединить цели, ценности и реальные шаги в жизни и бизнесе</p></div>
+      <div class="result-item reveal"><span class="result-item__number">07</span><p class="result-item__text" data-i18n="results.7">Свободнее проявляться на иностранном языке в профессиональной и социальной среде</p></div>
+      <div class="result-item reveal"><span class="result-item__number">08</span><p class="result-item__text" data-i18n="results.8">Почувствовать момент, когда «текущего уровня становится мало», и перейти на следующий этап</p></div>
+      <div class="result-item result-item--dark result-item--full reveal"><span class="result-item__number">09</span><p class="result-item__text" data-i18n="results.9">Создать ощущение внутреннего дома — независимо от страны проживания</p></div>
     </div>
   </section>
     <section class="cta-section" id="contact">
     <div class="cta__left reveal">
-      <p class="section-label">Начало пути</p>
-      <p class="cta__tagline">Любое сотрудничество начинается<br>со встречи-знакомства</p>
-      <p class="cta__description">Это пространство, где мы можем познакомиться, понять ваш запрос
+      <p class="section-label" data-i18n="cta.label">Начало пути</p>
+      <p class="cta__tagline" data-i18n-html="cta.tagline">Любое сотрудничество начинается<br>со встречи-знакомства</p>
+      <p class="cta__description" data-i18n="cta.description">Это пространство, где мы можем познакомиться, понять ваш запрос
         и решить, подходим ли мы друг другу для совместной работы.</p>
     </div>
     <div class="reveal">
       <div class="meeting-card">
-        <span class="meeting-card__tag">Онлайн-встреча · Zoom</span>
-        <h3 class="meeting-card__title">Встреча-знакомство</h3>
-        <p class="meeting-card__duration">30 минут · Бесплатно</p>
+        <span class="meeting-card__tag" data-i18n="meeting.tag">Онлайн-встреча · Zoom</span>
+        <h3 class="meeting-card__title" data-i18n="meeting.title">Встреча-знакомство</h3>
+        <p class="meeting-card__duration" data-i18n="meeting.duration">30 минут · Бесплатно</p>
         <ul class="meeting-card__list">
-          <li>Разбираем текущую ситуацию</li>
-          <li>Формулируем ваш запрос и желаемый результат</li>
-          <li>Определяем подходящий формат работы</li>
-          <li>Обсуждаем возможные варианты взаимодействия</li>
-          <li>Понимаем, насколько нам комфортно работать вместе</li>
+          <li data-i18n="meeting.list.1">Разбираем текущую ситуацию</li>
+          <li data-i18n="meeting.list.2">Формулируем ваш запрос и желаемый результат</li>
+          <li data-i18n="meeting.list.3">Определяем подходящий формат работы</li>
+          <li data-i18n="meeting.list.4">Обсуждаем возможные варианты взаимодействия</li>
+          <li data-i18n="meeting.list.5">Понимаем, насколько нам комфортно работать вместе</li>
         </ul>
-        <a href="#" class="btn btn--primary booking-trigger" id="booking-btn">Записаться</a>
+        <a href="#" class="btn btn--primary booking-trigger" id="booking-btn" data-i18n="meeting.cta">Записаться</a>
       </div>
     </div>
   </section>
   <section class="services-section" id="services">
     <div class="services-heading reveal">
       <div class="services-heading__line"></div>
-      <h2 class="services-heading__title">Форматы работы</h2>
+      <h2 class="services-heading__title" data-i18n="services.title">Форматы работы</h2>
       <div class="services-heading__line"></div>
     </div>
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-card__top">
-          <span class="service-card__tag">Для всех</span>
-          <h3 class="service-card__title">Индивидуальное коучинговое сопровождение</h3>
-          <p class="service-card__frequency">1 раз в 7–14 дней</p>
+          <span class="service-card__tag" data-i18n="coaching.tag">Для всех</span>
+          <h3 class="service-card__title" data-i18n="coaching.title">Индивидуальное коучинговое сопровождение</h3>
+          <p class="service-card__frequency" data-i18n="coaching.frequency">1 раз в 7–14 дней</p>
         </div>
         <div class="service-card__packages">
-          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions">5 коуч-сессий</span><span class="service-package__price">500 €</span></div></div>
-          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions">10 коуч-сессий</span><span class="service-package__price">900 €</span></div><span class="service-package__badge">Популярный</span></div>
-          <p class="service-card__note">Возможна оплата каждой сессии отдельно</p>
+          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions" data-i18n="coaching.package.1.sessions">5 коуч-сессий</span><span class="service-package__price">500 €</span></div></div>
+          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions" data-i18n="coaching.package.2.sessions">10 коуч-сессий</span><span class="service-package__price">900 €</span></div><span class="service-package__badge" data-i18n="coaching.package.badge">Популярный</span></div>
+          <p class="service-card__note" data-i18n="coaching.note">Возможна оплата каждой сессии отдельно</p>
         </div>
         <div class="service-card__results">
-          <p class="service-card__results-label">Результаты клиентов в долгосрочном сопровождении:</p>
+          <p class="service-card__results-label" data-i18n="coaching.results.label">Результаты клиентов в долгосрочном сопровождении:</p>
           <ul class="service-card__list">
-            <li>Переход из тревоги, хаоса и внутреннего смещения к устойчивости и ясности</li>
-            <li>Ощущение внутренней опоры и контакта с собой</li>
-            <li>Понимание, чего вы действительно хотите, а не «как правильно»</li>
-            <li>Выход из роли человека, который живёт обстоятельствами, в позицию Автора своей жизни</li>
-            <li>Адаптация в новой стране без потери себя и своей идентичности</li>
-            <li>Рост самоценности и уверенности в себе</li>
-            <li>Запуск или развитие своего проекта, блога, практики или бизнеса</li>
-            <li>Понимание, как проявляться и продавать себя экологично</li>
-            <li>Осознание своей ценности: «я — это не только мои инструменты и навыки»</li>
-            <li>Взрослая позиция, ответственность и способность выбирать себя</li>
-            <li>Спокойная «холодная голова» вместо постоянной перегрузки</li>
-            <li>Больше внутренней свободы, энергии и ощущения «я могу»</li>
-            <li>Умение слышать себя и принимать решения из себя, а не из страха</li>
-            <li>Ощущение соединённости с собой, своими смыслами и жизнью</li>
-            <li>Рост доходов</li>
+            <li data-i18n="coaching.results.1">Переход из тревоги, хаоса и внутреннего смещения к устойчивости и ясности</li>
+            <li data-i18n="coaching.results.2">Ощущение внутренней опоры и контакта с собой</li>
+            <li data-i18n="coaching.results.3">Понимание, чего вы действительно хотите, а не «как правильно»</li>
+            <li data-i18n="coaching.results.4">Выход из роли человека, который живёт обстоятельствами, в позицию Автора своей жизни</li>
+            <li data-i18n="coaching.results.5">Адаптация в новой стране без потери себя и своей идентичности</li>
+            <li data-i18n="coaching.results.6">Рост самоценности и уверенности в себе</li>
+            <li data-i18n="coaching.results.7">Запуск или развитие своего проекта, блога, практики или бизнеса</li>
+            <li data-i18n="coaching.results.8">Понимание, как проявляться и продавать себя экологично</li>
+            <li data-i18n="coaching.results.9">Осознание своей ценности: «я — это не только мои инструменты и навыки»</li>
+            <li data-i18n="coaching.results.10">Взрослая позиция, ответственность и способность выбирать себя</li>
+            <li data-i18n="coaching.results.11">Спокойная «холодная голова» вместо постоянной перегрузки</li>
+            <li data-i18n="coaching.results.12">Больше внутренней свободы, энергии и ощущения «я могу»</li>
+            <li data-i18n="coaching.results.13">Умение слышать себя и принимать решения из себя, а не из страха</li>
+            <li data-i18n="coaching.results.14">Ощущение соединённости с собой, своими смыслами и жизнью</li>
+            <li data-i18n="coaching.results.15">Рост доходов</li>
           </ul>
         </div>
-        <a href="#" class="btn btn--outline service-card__btn booking-trigger">Записаться</a>
+        <a href="#" class="btn btn--outline service-card__btn booking-trigger" data-i18n="coaching.cta">Записаться</a>
       </div>
       <div class="service-card service-card--dark reveal">
         <div class="service-card__top">
-          <span class="service-card__tag">Для коучей и специалистов</span>
-          <h3 class="service-card__title">Коучинговая супервизия</h3>
-          <p class="service-card__subtitle">Когда важно не только «работать с клиентом», но и сохранять контакт с собой в профессии.</p>
+          <span class="service-card__tag" data-i18n="supervision.tag">Для коучей и специалистов</span>
+          <h3 class="service-card__title" data-i18n="supervision.title">Коучинговая супервизия</h3>
+          <p class="service-card__subtitle" data-i18n="supervision.subtitle">Когда важно не только «работать с клиентом», но и сохранять контакт с собой в профессии.</p>
         </div>
         <div class="service-card__packages">
-          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions">1 сессия · до 1,5 часов</span><span class="service-package__price">130 €</span></div></div>
-          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions">5 сессий</span><span class="service-package__price">600 €</span></div></div>
+          <div class="service-package"><div class="service-package__info"><span class="service-package__sessions" data-i18n="supervision.package.1.sessions">1 сессия · до 1,5 часов</span><span class="service-package__price">130 €</span></div></div>
+          <div class="service-package service-package--accent"><div class="service-package__info"><span class="service-package__sessions" data-i18n="supervision.package.2.sessions">5 сессий</span><span class="service-package__price">600 €</span></div></div>
         </div>
         <div class="service-card__results">
-          <p class="service-card__results-label">В супервизии мы:</p>
+          <p class="service-card__results-label" data-i18n="supervision.results.label">В супервизии мы:</p>
           <ul class="service-card__list">
-            <li>Исследуем процессы между вами и клиентом</li>
-            <li>Разбираем сложные клиентские кейсы</li>
-            <li>Смотрим системно и ищем новые способы видеть ситуацию</li>
-            <li>Возвращаем ясность и устойчивость</li>
-            <li>Укрепляем вашу профессиональную опору</li>
-            <li>Исследуем свои реакции и ограничения</li>
-            <li>Сохраняем глубину без выгорания</li>
+            <li data-i18n="supervision.results.1">Исследуем процессы между вами и клиентом</li>
+            <li data-i18n="supervision.results.2">Разбираем сложные клиентские кейсы</li>
+            <li data-i18n="supervision.results.3">Смотрим системно и ищем новые способы видеть ситуацию</li>
+            <li data-i18n="supervision.results.4">Возвращаем ясность и устойчивость</li>
+            <li data-i18n="supervision.results.5">Укрепляем вашу профессиональную опору</li>
+            <li data-i18n="supervision.results.6">Исследуем свои реакции и ограничения</li>
+            <li data-i18n="supervision.results.7">Сохраняем глубину без выгорания</li>
           </ul>
         </div>
-        <a href="#" class="btn btn--outline service-card__btn booking-trigger">Записаться</a>
+        <a href="#" class="btn btn--outline service-card__btn booking-trigger" data-i18n="supervision.cta">Записаться</a>
       </div>
       <div class="service-card service-card--wide service-card--lab reveal">
 
         <div class="service-card__lab-inner">
 
           <div class="service-card__lab-left">
-            <span class="service-card__tag">Групповой формат</span>
+            <span class="service-card__tag" data-i18n="lab.tag">Групповой формат</span>
 
             <h3 class="service-card__title">Language Lab</h3>
 
-            <p class="service-card__lab-lead">
+            <p class="service-card__lab-lead" data-i18n="lab.lead">
               Групповые встречи на английском языке, где язык становится инструментом уверенности, мышления и действий — а не источником напряжения.
             </p>
 
-            <p class="service-card__lab-note">
+            <p class="service-card__lab-note" data-i18n="lab.note">
               Это не классические уроки английского.
             </p>
           </div>
 
           <div class="service-card__lab-right">
-            <p class="service-card__results-label">Это пространство, где:</p>
+            <p class="service-card__results-label" data-i18n="lab.results.label">Это пространство, где:</p>
             <ul class="service-card__list">
-              <li>Практикуешь английский в реальных жизненных и профессиональных ситуациях</li>
-              <li>Говоришь больше и смелее — без страха ошибок</li>
-              <li>Тренируешь уверенность на иностранном языке, а не «идеальность»</li>
-              <li>Учишься формулировать мысли, позиции и решения в международном контексте</li>
-              <li>Развиваешь навыки коммуникации для жизни и работы за границей</li>
-              <li>Готовишься к выступлениям, коуч-сессиям и профессиональному общению на английском</li>
-              <li>Получаешь поддержку в кругу людей, которые тоже проходят путь адаптации и роста</li>
+              <li data-i18n="lab.results.1">Практикуешь английский в реальных жизненных и профессиональных ситуациях</li>
+              <li data-i18n="lab.results.2">Говоришь больше и смелее — без страха ошибок</li>
+              <li data-i18n="lab.results.3">Тренируешь уверенность на иностранном языке, а не «идеальность»</li>
+              <li data-i18n="lab.results.4">Учишься формулировать мысли, позиции и решения в международном контексте</li>
+              <li data-i18n="lab.results.5">Развиваешь навыки коммуникации для жизни и работы за границей</li>
+              <li data-i18n="lab.results.6">Готовишься к выступлениям, коуч-сессиям и профессиональному общению на английском</li>
+              <li data-i18n="lab.results.7">Получаешь поддержку в кругу людей, которые тоже проходят путь адаптации и роста</li>
             </ul>
           </div>
 
         </div>
 
         <div class="service-card__lab-footer">
-          <p class="service-card__lab-tagline">
+          <p class="service-card__lab-tagline" data-i18n="lab.tagline">
             Language Lab — для тех, кто хочет не просто «учить язык», а начать использовать его как инструмент реализации и новых возможностей
           </p>
-          <a href="#" class="btn btn--primary booking-trigger service-card__btn">
+          <a href="#" class="btn btn--primary booking-trigger service-card__btn" data-i18n="lab.cta">
             Оставить заявку
           </a>
         </div>
@@ -221,33 +226,35 @@
     <div class="certificates-inner">
 
       <div class="certificates-header reveal">
-        <p class="certificates-eyebrow">Образование и квалификация</p>
-        <h2 class="certificates-title">Документы,<br><em>подтверждающие практику</em></h2>
+        <p class="certificates-eyebrow" data-i18n="cert.eyebrow">Образование и квалификация</p>
+        <h2 class="certificates-title" data-i18n-html="cert.title">Документы,<br><em>подтверждающие практику</em></h2>
       </div>
 
       <div class="cert-slider" id="cert-slider">
 
-        <button class="cert-arrow cert-arrow--prev" id="cert-prev" aria-label="Назад">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M15 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        <button class="cert-arrow cert-arrow--next" id="cert-next" aria-label="Вперёд">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </button>
+        <div class="cert-stage">
+          <button class="cert-arrow cert-arrow--prev" id="cert-prev" aria-label="Назад" data-i18n-attr="aria-label:cert.prev">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="cert-arrow cert-arrow--next" id="cert-next" aria-label="Вперёд" data-i18n-attr="aria-label:cert.next">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
 
-        <div class="cert-viewport">
-          <div class="cert-track" id="cert-track">
-            <div class="cert-slide" data-index="0">
-              <img src="images/certificate1.jpg" alt="Сертификат 1" loading="lazy">
-            </div>
-            <div class="cert-slide" data-index="1">
-              <img src="images/certificate2.jpg" alt="Сертификат 2" loading="lazy">
-            </div>
-            <div class="cert-slide" data-index="2">
-              <img src="images/certificate3.jpg" alt="Сертификат 3" loading="lazy">
+          <div class="cert-viewport">
+            <div class="cert-track" id="cert-track">
+              <div class="cert-slide" data-index="0">
+                <img src="images/certificate1.jpg" alt="Диплом PCC ICF" decoding="async" data-i18n-attr="alt:cert.1.alt">
+              </div>
+              <div class="cert-slide" data-index="1">
+                <img src="images/certificate2.jpg" alt="Сертификат супервизора EMCC" loading="lazy" decoding="async" data-i18n-attr="alt:cert.2.alt">
+              </div>
+              <div class="cert-slide" data-index="2">
+                <img src="images/certificate3.jpg" alt="Диплом по межкультурной коммуникации" loading="lazy" decoding="async" data-i18n-attr="alt:cert.3.alt">
+              </div>
             </div>
           </div>
         </div>
@@ -257,30 +264,31 @@
           <button class="cert-dot" data-index="1"></button>
           <button class="cert-dot" data-index="2"></button>
         </div>
+        <p class="cert-counter" id="cert-counter">1 / 3</p>
 
       </div>
     </div>
   </section>
   <section class="partners-section" id="partners">
     <div class="partners-content">
-      <p class="section-label reveal">Партнёры</p>
-      <h2 class="section-title reveal">Люди, которым я доверяю</h2>
+      <p class="section-label reveal" data-i18n="partners.label">Партнёры</p>
+      <h2 class="section-title reveal" data-i18n="partners.title">Люди, которым я доверяю</h2>
       <div class="partners-grid partners-grid--centered">
         <div class="partner-card reveal">
           <div class="partner-card__header">
             <div class="partner-card__photo-wrap">
-              <img src="images/anna.jpg" alt="Анна Половкова" class="partner-card__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <img src="images/anna.jpg" alt="Анна Половкова" class="partner-card__photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" data-i18n-attr="alt:partner.anna.photo.alt">
               <div class="partner-card__photo-placeholder">АП</div>
             </div>
             <div class="partner-card__meta">
-              <h3 class="partner-card__name">Анна Половкова</h3>
-              <span class="partner-card__role">Веб-разработчик · UX/UI дизайнер</span>
+              <h3 class="partner-card__name" data-i18n="partner.anna.name">Анна Половкова</h3>
+              <span class="partner-card__role" data-i18n="partner.anna.role">Веб-разработчик · UX/UI дизайнер</span>
             </div>
           </div>
-          <p class="partner-card__bio">Студентка Computer Science, победитель национальных хакатонов и фронтенд-соревнований. Создаёт сайты, которые не просто красивы — они работают на вас: привлекают клиентов, отражают ваш стиль и оставляют впечатление.</p>
+          <p class="partner-card__bio" data-i18n="partner.anna.bio">Студентка Computer Science, победитель национальных хакатонов и фронтенд-соревнований. Создаёт сайты, которые не просто красивы — они работают на вас: привлекают клиентов, отражают ваш стиль и оставляют впечатление.</p>
           <ul class="partner-card__tags">
-            <li>Сайты-визитки</li>
-            <li>UX/UI дизайн</li>
+            <li data-i18n="partner.anna.tag.1">Сайты-визитки</li>
+            <li data-i18n="partner.anna.tag.2">UX/UI дизайн</li>
             <li>Figma · HTML/CSS/JS</li>
           </ul>
           <a href="https://www.linkedin.com/in/anna-polovkova/" target="_blank" rel="noopener noreferrer" class="partner-card__link">LinkedIn →</a>
@@ -291,7 +299,7 @@
   </section>
   <footer class="footer">
     <div class="footer__top reveal">
-      <span class="footer__name">Наталья<br><em>Тополь-Сандр</em></span>
+      <span class="footer__name" data-i18n-html="footer.name">Наталья<br><em>Тополь-Сандр</em></span>
       <div class="footer__socials">
         <a href="https://t.me/natalia_talk_nomad_notes" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Telegram">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -311,29 +319,30 @@
     <div class="footer__bottom reveal">
       <div class="footer__line"></div>
       <div class="footer__meta">
-        <span class="footer__tagline">Коуч · Супервизор EMCC · Специалист по межкультурной коммуникации</span>
+        <span class="footer__tagline" data-i18n="footer.tagline">Коуч · Супервизор EMCC · Специалист по межкультурной коммуникации</span>
       </div>
     </div>
   </footer>
   <div class="booking-modal" id="booking-modal" role="dialog" aria-modal="true">
     <div class="booking-modal__backdrop" id="booking-modal-backdrop"></div>
     <div class="booking-modal__content">
-      <button class="booking-modal__close" id="booking-modal-close" aria-label="Закрыть">
+      <button class="booking-modal__close" id="booking-modal-close" aria-label="Закрыть" data-i18n-attr="aria-label:modal.close">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
           <line x1="18" y1="6" x2="6" y2="18"/>
           <line x1="6" y1="6" x2="18" y2="18"/>
         </svg>
       </button>
 
-      <p class="booking-modal__eyebrow">Начало пути</p>
-      <h3 class="booking-modal__title">Выберите мессенджер</h3>
-      <p class="booking-modal__subtitle">Напишите Наталье, чтобы договориться о знакомстве, обменяться ожиданиями и выбрать удобный формат работы.</p>
+      <p class="booking-modal__eyebrow" data-i18n="modal.eyebrow">Начало пути</p>
+      <h3 class="booking-modal__title" data-i18n="modal.title">Выберите мессенджер</h3>
+      <p class="booking-modal__subtitle" data-i18n="modal.subtitle">Напишите Наталье, чтобы договориться о знакомстве, обменяться ожиданиями и выбрать удобный формат работы.</p>
       <div class="booking-modal__actions">
         <a href="#" id="booking-tg" target="_blank" rel="noopener noreferrer" class="booking-modal__action">Telegram</a>
         <a href="#" id="booking-wa" target="_blank" rel="noopener noreferrer" class="booking-modal__action booking-modal__action--secondary">WhatsApp</a>
       </div>
     </div>
   </div>
+  <script src="js/i18n.js"></script>
   <script src="js/scroll.js"></script>
   <script src="js/ui.js"></script>
 </body>

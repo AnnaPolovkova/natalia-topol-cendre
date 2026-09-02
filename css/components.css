@@ -1046,7 +1046,7 @@
 .certificates-section {
   background: var(--color-dark-brown);
   padding: var(--spacing-xl) 0;
-  overflow: hidden;
+  overflow: visible; /* allow shadows to show */
 }
 
 .certificates-inner {
@@ -1082,50 +1082,65 @@
 }
 
 .cert-slider {
-  position: relative;
   margin: 0 80px;
 }
 
-.cert-viewport {
-  overflow: hidden;
-  width: 100%;
-  padding: 20px 0;
+/* Стрелки центрируются по высоте картинки, а не всего слайдера — иначе
+   при появлении высокого портретного диплома (когда сцена вырастает)
+   точки и счётчик под ней сдвигали бы "середину" слайдера вниз. */
+.cert-stage {
+  position: relative;
 }
 
+.cert-viewport {
+  overflow: hidden;      /* страховка: подрезает только на мобиле */
+  width: 100%;
+  padding: 14px 0;
+}
+
+/* Сцена: высоту задаёт JS, слайды позиционируются от её центра */
 .cert-track {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform;
+  position: relative;
+  width: 100%;
 }
 
 .cert-slide {
-  flex-shrink: 0;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(196,162,101,0.15);
+  will-change: transform, opacity;
+  transition:
+    transform 560ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    opacity 380ms ease,
+    border-color 380ms ease,
+    box-shadow 380ms ease;
 }
 
 .cert-slide.is-active {
-  transform: scale(1);
-  opacity: 1;
-  z-index: 1;
+  border-color: rgba(196,162,101,0.45);
+  box-shadow: 0 18px 48px rgba(0,0,0,0.42);
+  cursor: default;
 }
 
-.cert-slide:not(.is-active) {
-  transform: scale(0.85);
-  opacity: 0.5;
-}
+.cert-slide:not(.is-active) { cursor: pointer; }
 
 .cert-slide img {
   display: block;
-  border: 1px solid rgba(196,162,101,0.15);
-  transition: border-color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* документ никогда не кропается */
+  user-select: none;
 }
 
-.cert-slide.is-active img {
-  border-color: rgba(196,162,101,0.4);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+.cert-counter {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,0.45);
+  margin: 18px 0 0;
 }
 
 .cert-arrow {
@@ -1185,15 +1200,8 @@
   .cert-arrow {
     display: none;
   }
-  .cert-slide {
-    height: 260px;
-    width: auto;
-  }
-  .cert-slide img {
-    height: 100%;
-    width: auto;
-    max-width: none;
-  }
+  /* Make mobile certificates larger and centered */
+  .cert-slider { margin: 0 12px; }
 }
 /* === LANGUAGE LAB (широкая карточка) === */
 .service-card--wide {
@@ -1316,4 +1324,50 @@
   .partners-content {
     padding: 0 24px;
   }
+}
+
+/* ============================================================
+   ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА
+   ============================================================ */
+
+.lang-switch {
+  /* Часть .hero__left (стоит перед .hero__words в разметке) — обычный
+     элемент потока, скроллится вместе со страницей, а не прилипает
+     к вьюпорту как хэдер. */
+  align-self: flex-start;
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  margin-top: -16px;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: rgba(245, 240, 232, 0.72);
+  border: 1px solid rgba(196, 162, 101, 0.35);
+  backdrop-filter: blur(8px);
+}
+
+.lang-switch__btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-warm-brown);
+  cursor: pointer;
+  transition: background var(--transition-normal), color var(--transition-normal);
+}
+
+.lang-switch__btn:hover { color: var(--color-dark-brown); }
+
+.lang-switch__btn.is-active {
+  background: var(--color-dark-brown);
+  color: var(--color-cream);
+}
+
+@media (max-width: 768px) {
+  .lang-switch { margin-bottom: 18px; }
+  .lang-switch__btn { padding: 7px 11px; font-size: 10px; }
 }

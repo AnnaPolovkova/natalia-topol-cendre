@@ -28,24 +28,10 @@
 
   var bookingSource = ''; // Откуда была нажата кнопка записи
 
-  var bookingMessages = {
-    'meeting': {
-      tg: 'Здравствуйте, Наталья! Хотела бы записаться на встречу-знакомство и обсудить возможное сотрудничество. Спасибо.',
-      wa: 'Здравствуйте, Наталья! Хотела бы записаться на встречу-знакомство и обсудить возможное сотрудничество. Спасибо.'
-    },
-    'coaching': {
-      tg: 'Здравствуйте, Наталья! Интересует индивидуальное коучинговое сопровождение. Буду рада обсудить формат работы.',
-      wa: 'Здравствуйте, Наталья! Интересует индивидуальное коучинговое сопровождение. Буду рада обсудить формат работы.'
-    },
-    'supervision': {
-      tg: 'Здравствуйте, Наталья! Интересует коучинговая супервизия. Хотелось бы обсудить детали и дальнейший формат.',
-      wa: 'Здравствуйте, Наталья! Интересует коучинговая супервизия. Хотелось бы обсудить детали и дальнейший формат.'
-    },
-    'languageLab': {
-      tg: 'Здравствуйте, Наталья! Хотела бы оставить заявку на Language Lab. Спасибо.',
-      wa: 'Здравствуйте, Наталья! Хотела бы оставить заявку на Language Lab. Спасибо.'
-    }
-  };
+  function bookingMessage() {
+    var key = 'booking.msg.' + (bookingSource || 'meeting');
+    return window.i18n ? window.i18n.t(key) : '';
+  }
 
   function openModal(source) {
     if (!modal) return;
@@ -88,8 +74,7 @@
   if (tgBtn) {
     tgBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      var message = bookingMessages[bookingSource]?.tg || bookingMessages.meeting.tg;
-      var encodedMessage = encodeURIComponent(message);
+      var encodedMessage = encodeURIComponent(bookingMessage());
       window.open('https://t.me/natalia_talk?text=' + encodedMessage, '_blank', 'noopener');
       closeModal();
     });
@@ -98,8 +83,7 @@
   if (waBtn) {
     waBtn.addEventListener('click', function (e) {
       e.preventDefault();
-      var message = bookingMessages[bookingSource]?.wa || bookingMessages.meeting.wa;
-      var encodedMessage = encodeURIComponent(message);
+      var encodedMessage = encodeURIComponent(bookingMessage());
       window.open('https://wa.me/+33664704944?text=' + encodedMessage, '_blank', 'noopener');
       closeModal();
     });
@@ -114,255 +98,238 @@
 })();
 
 // -------------------------------------------------------
-// СЛАЙДЕР СЕРТИФИКАТОВ — infinite loop, center active
+// СЛАЙДЕР СЕРТИФИКАТОВ — фиксированные пропорции, без цикла
 // -------------------------------------------------------
 (function () {
   'use strict';
 
-  var slider   = document.getElementById('cert-slider');
-  var track    = document.getElementById('cert-track');
-  var dotsWrap = document.getElementById('cert-dots');
-  var btnPrev  = document.getElementById('cert-prev');
-  var btnNext  = document.getElementById('cert-next');
+  var slider  = document.getElementById('cert-slider');
+  var stage   = document.getElementById('cert-track');
+  var dotsBox = document.getElementById('cert-dots');
+  var counter = document.getElementById('cert-counter');
+  var btnPrev = document.getElementById('cert-prev');
+  var btnNext = document.getElementById('cert-next');
 
-  if (!track) return;
+  if (!slider || !stage) return;
 
-  var ACTIVE_RATIO  = 0.52;
-  var SIDE_RATIO    = 0.30;
-  var GAP           = 20;
-  var TRANSITION_MS = 500;
+  var slides = Array.prototype.slice.call(stage.querySelectorAll('.cert-slide'));
+  var total  = slides.length;
+  if (!total) return;
 
-  var origSlides = Array.from(track.querySelectorAll('.cert-slide'));
-  var total      = origSlides.length;
-  var current    = 0;
+  // Пропорции файлов известны заранее — раскладка не зависит от загрузки картинок.
+  var RATIOS = [3300 / 2550, 1206 / 837, 1414 / 2000];
 
-  var cloneBefore = origSlides[total - 1].cloneNode(true);
-  var cloneAfter  = origSlides[0].cloneNode(true);
-  cloneBefore.setAttribute('aria-hidden', 'true');
-  cloneAfter.setAttribute('aria-hidden', 'true');
-  cloneBefore.classList.add('is-clone');
-  cloneAfter.classList.add('is-clone');
+  var GAP_DESKTOP  = 28;
+  var GAP_MOBILE   = 14;
+  var PEEK_DESKTOP = 0.64; // масштаб бокового слайда
+  var PEEK_MOBILE  = 0.52;
+  var ACTIVE_SCALE = 1.2; // главный диплом крупнее базового бокса
 
-  track.insertBefore(cloneBefore, origSlides[0]);
-  track.appendChild(cloneAfter);
+  var current = 0;
+  var geo = null;
 
-  function getAllSlides() {
-    return Array.from(track.querySelectorAll('.cert-slide'));
-  }
+  function measure() {
+    var stageW = slider.offsetWidth;
+    var mobile = window.innerWidth < 768; // как в @media (max-width: 768px)
+    var gap    = mobile ? GAP_MOBILE : GAP_DESKTOP;
+    var peek   = mobile ? PEEK_MOBILE : PEEK_DESKTOP;
 
-  var vpWidth       = 0;
-  var activeW       = 0;
-  var sideW         = 0;
-  var isMobile      = false;
+    var boxH = mobile
+      ? Math.round(Math.min(300, stageW * 0.9))
+      : Math.round(Math.min(440, stageW * 0.46));
 
-  function calcSizes() {
-    vpWidth  = slider.offsetWidth;
-    isMobile = vpWidth < 768;
+    // Десктоп: соседи влезают целиком. Мобила: соседи подрезаны узкой полоской.
+    var boxW = mobile
+      ? Math.round(stageW * 0.72)
+      : Math.floor((stageW - 2 * gap) / (1 + 2 * peek));
 
-    if (isMobile) {
-      activeW = Math.round(vpWidth * 0.85);
-      sideW   = Math.round(vpWidth * 0.60);
-    } else {
-      activeW = Math.round(vpWidth * ACTIVE_RATIO);
-      sideW   = Math.round(vpWidth * SIDE_RATIO);
-    }
-
-    applySlideWidths();
-    moveTo(current, false);
-  }
-
-  function applySlideWidths() {
-    var all = getAllSlides();
-    var activeReal = current + 1;
-
-    all.forEach(function (slide, i) {
-      var img = slide.querySelector('img');
-      var isAct = (i === activeReal);
-
-      if (isMobile) {
-        slide.style.width  = (isAct ? activeW : sideW) + 'px';
-        slide.style.height = 'auto';
-        if (img) {
-          img.style.width  = '100%';
-          img.style.height = 'auto';
-        }
-      } else {
-        var fixedH = Math.round(vpWidth * 0.40);
-        slide.style.height = fixedH + 'px';
-        slide.style.width  = 'auto';
-        if (img) {
-          img.style.height = '100%';
-          img.style.width  = 'auto';
-          img.style.maxWidth = 'none';
-        }
-      }
-
-      slide.classList.toggle('is-active', isAct);
-    });
-  }
-
-  function getSlideOffset(realIndex) {
-    var all = getAllSlides();
-    var offset = 0;
-    for (var i = 0; i < realIndex; i++) {
-      offset += all[i].offsetWidth + GAP;
-    }
-    var slideW = all[realIndex] ? all[realIndex].offsetWidth : activeW;
-    offset -= (vpWidth - slideW) / 2;
-    return -offset;
-  }
-
-  var isTransitioning = false;
-
-  function moveTo(origIndex, animate) {
-    if (animate === undefined) animate = true;
-    var all      = getAllSlides();
-    var realIndex = origIndex + 1;
-
-    applySlideWidths();
-
-    if (animate) {
-      track.style.transition = 'transform ' + TRANSITION_MS + 'ms cubic-bezier(0.4,0,0.2,1)';
-    } else {
-      track.style.transition = 'none';
-    }
-
-    requestAnimationFrame(function () {
-      track.style.transform = 'translateX(' + getSlideOffset(realIndex) + 'px)';
+    // Базовый размер — только для боковых слайдов (см. sizeOf).
+    var sizes = slides.map(function (_, i) {
+      var ratio = RATIOS[i] || 1;
+      var w = Math.min(boxW, boxH * ratio);
+      return { w: Math.round(w), h: Math.round(w / ratio) };
     });
 
-    updateDots(origIndex);
+    // Высота главного диплома всегда одна и та же, не зависит от пропорций
+    // конкретного документа — иначе при переходе от альбомного к портретному
+    // высота сцены гуляла бы и стрелки прыгали вверх-вниз вместе с ней.
+    var activeH = Math.round(boxH * ACTIVE_SCALE);
+
+    // Предохранитель для широких альбомных документов на узких экранах:
+    // высота остаётся постоянной, только если при ней ширина ещё влезает
+    // в сцену; иначе (редкий случай) ширину ограничиваем, а высоту уже
+    // подгоняем под неё — лучше чуть ниже, чем обрезано по бокам.
+    var activeMaxW = Math.round(stageW * (mobile ? 0.92 : 0.72));
+
+    geo = { gap: gap, peek: peek, boxH: boxH, activeH: activeH, activeMaxW: activeMaxW, sizes: sizes };
+    stage.style.height = activeH + 'px';
   }
 
-  function next() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current++;
-    if (current > total - 1) current = total;
-
-    moveTo(current < total ? current : total, true);
-
-    setTimeout(function () {
-      if (current >= total) {
-        current = 0;
-        moveTo(current, false);
-      }
-      isTransitioning = false;
-    }, TRANSITION_MS + 20);
+  // Круговая дистанция от слайда i до активного: значение в диапазоне
+  // (-total/2, total/2], т.е. всегда кратчайший путь по кругу. При total=3
+  // это -1/0/1 — сосед никогда не бывает дальше одного шага. Параметр cur
+  // позволяет посчитать дистанцию для другого "активного" (нужно, чтобы
+  // сравнить положение слайда до и после перехода — см. goTo).
+  function ringDelta(i, cur) {
+    if (cur === undefined) cur = current;
+    var raw = ((i - cur) % total + total) % total;
+    if (raw > total / 2) raw -= total;
+    return raw;
   }
 
-  function prev() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current--;
-    if (current < 0) current = -1;
-
-    moveTo(current >= 0 ? current : -1, true);
-
-    setTimeout(function () {
-      if (current < 0) {
-        current = total - 1;
-        moveTo(current, false);
-      }
-      isTransitioning = false;
-    }, TRANSITION_MS + 20);
+  // Соседи — базовый (боковой) размер как есть. Активный слайд всегда имеет
+  // одну и ту же высоту geo.activeH — ширина под неё подстраивается по
+  // пропорциям конкретного документа (см. activeMaxW про исключение).
+  function sizeOf(i) {
+    if (i !== current) return geo.sizes[i];
+    var ratio = RATIOS[i] || 1;
+    var h = geo.activeH;
+    var w = h * ratio;
+    if (w > geo.activeMaxW) {
+      w = geo.activeMaxW;
+      h = w / ratio;
+    }
+    return { w: Math.round(w), h: Math.round(h) };
   }
 
-  var _origMoveTo = moveTo;
-  moveTo = function (origIndex, animate) {
-    if (origIndex === -1) {
-      var all = getAllSlides();
-      if (animate) {
-        track.style.transition = 'transform ' + TRANSITION_MS + 'ms cubic-bezier(0.4,0,0.2,1)';
-      } else {
-        track.style.transition = 'none';
-      }
-      applySlideWidths();
+  // Смещение слайда i от центра сцены = сумма ВИЗУАЛЬНЫХ ширин соседей
+  // (уже умноженных на peek) по кратчайшему пути вокруг кольца.
+  function offsetOf(i) {
+    var delta = ringDelta(i);
+    if (delta === 0) return 0;
+    var dir   = delta > 0 ? 1 : -1;
+    var steps = Math.abs(delta);
+    var off   = sizeOf(current).w / 2;
+    var idx   = current;
+    for (var s = 1; s < steps; s++) {
+      idx = ((idx + dir) % total + total) % total;
+      off += geo.gap + geo.sizes[idx].w * geo.peek;
+    }
+    return dir * (off + geo.gap + (geo.sizes[i].w * geo.peek) / 2);
+  }
+
+  function applyGeometry(slide, i) {
+    var scale = i === current ? 1 : geo.peek;
+    var sz = sizeOf(i);
+    slide.style.width  = sz.w + 'px';
+    slide.style.height = sz.h + 'px';
+    slide.style.transform =
+      'translate(calc(-50% + ' + Math.round(offsetOf(i)) + 'px), -50%) scale(' + scale + ')';
+  }
+
+  function targetOpacity(d) {
+    return d === 0 ? 1 : d === 1 ? 0.45 : 0;
+  }
+
+  var WRAP_FADE_MS = 160;
+
+  // Слайд, который при переходе меняет сторону (был слева — стал справа,
+  // или наоборот), гасим, телепортируем на новое место без анимации transform,
+  // а потом проявляем — вместо того чтобы дать ему визуально проехать через
+  // сцену позади активного диплома, отсюда и было ощущение "перепрыгивания".
+  function teleport(slide, i) {
+    if (slide._wrapTimer) clearTimeout(slide._wrapTimer);
+
+    slide.style.transition = 'opacity ' + WRAP_FADE_MS + 'ms ease';
+    slide.style.opacity = '0';
+
+    slide._wrapTimer = setTimeout(function () {
+      slide._wrapTimer = null;
+      slide.style.transition = 'none';
+      applyGeometry(slide, i);
+      void slide.offsetWidth; // reflow, чтобы "none" точно применился до следующего шага
+      slide.style.transition = '';
       requestAnimationFrame(function () {
-        track.style.transform = 'translateX(' + getSlideOffset(0) + 'px)';
+        slide.style.opacity = targetOpacity(Math.abs(ringDelta(i)));
       });
-      updateDots(total - 1);
-      return;
-    }
-    if (origIndex === total) {
-      var all = getAllSlides();
-      if (animate) {
-        track.style.transition = 'transform ' + TRANSITION_MS + 'ms cubic-bezier(0.4,0,0.2,1)';
+    }, WRAP_FADE_MS);
+  }
+
+  function render(wrapped) {
+    wrapped = wrapped || [];
+
+    slides.forEach(function (slide, i) {
+      var d = Math.abs(ringDelta(i));
+
+      slide.style.zIndex = total - d;
+      slide.style.pointerEvents = d <= 1 ? 'auto' : 'none';
+      slide.classList.toggle('is-active', i === current);
+
+      if (wrapped.indexOf(i) !== -1) {
+        teleport(slide, i);
       } else {
-        track.style.transition = 'none';
+        applyGeometry(slide, i);
+        slide.style.opacity = targetOpacity(d);
       }
-      applySlideWidths();
-      requestAnimationFrame(function () {
-        track.style.transform = 'translateX(' + getSlideOffset(total + 1) + 'px)';
-      });
-      updateDots(0);
-      return;
-    }
-    _origMoveTo(origIndex, animate);
-  };
-
-  function updateDots(origIndex) {
-    var realIdx = ((origIndex % total) + total) % total;
-    var dots = dotsWrap.querySelectorAll('.cert-dot');
-    dots.forEach(function (d, i) {
-      d.classList.toggle('is-active', i === realIdx);
     });
+
+    if (dotsBox) {
+      dotsBox.querySelectorAll('.cert-dot').forEach(function (dot, i) {
+        dot.classList.toggle('is-active', i === current);
+      });
+    }
+    if (counter) counter.textContent = (current + 1) + ' / ' + total;
   }
 
-  if (dotsWrap) {
-    dotsWrap.querySelectorAll('.cert-dot').forEach(function (dot) {
-      dot.addEventListener('click', function () {
-        var idx = parseInt(dot.dataset.index, 10);
-        current = idx;
-        moveTo(current, true);
-        isTransitioning = false;
-      });
-    });
+  // Листание бесконечное: индекс всегда оборачивается по кругу, стрелки
+  // никогда не блокируются.
+  function goTo(i) {
+    var n = ((i % total) + total) % total;
+    if (n === current) return;
+
+    var prevCurrent = current;
+    current = n;
+
+    // Слайды, которые из-за кругового перехода поменяли сторону (были
+    // слева от активного — стали справа, или наоборот), а не просто
+    // сдвинулись к центру/от центра.
+    var wrapped = [];
+    for (var idx = 0; idx < total; idx++) {
+      var before = ringDelta(idx, prevCurrent);
+      var after  = ringDelta(idx, current);
+      if (before !== 0 && after !== 0 && (before > 0) !== (after > 0)) {
+        wrapped.push(idx);
+      }
+    }
+
+    render(wrapped);
   }
 
-  if (btnPrev) btnPrev.addEventListener('click', prev);
-  if (btnNext) btnNext.addEventListener('click', next);
+  if (btnPrev) btnPrev.addEventListener('click', function () { goTo(current - 1); });
+  if (btnNext) btnNext.addEventListener('click', function () { goTo(current + 1); });
 
-  var touchStartX = 0;
-  var touchEndX   = 0;
-
-  track.addEventListener('touchstart', function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  }, { passive: true });
-
-  track.addEventListener('touchend', function (e) {
-    touchEndX = e.changedTouches[0].screenX;
-    var diff = touchStartX - touchEndX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) next(); else prev();
-    }
-  }, { passive: true });
-
-  var dragStartX  = 0;
-  var isDragging  = false;
-
-  track.addEventListener('mousedown', function (e) {
-    isDragging = true;
-    dragStartX = e.pageX;
-    track.style.cursor = 'grabbing';
+  slides.forEach(function (slide, i) {
+    slide.addEventListener('click', function () { goTo(i); });
   });
 
-  document.addEventListener('mouseup', function (e) {
-    if (!isDragging) return;
-    isDragging = false;
-    track.style.cursor = '';
-    var diff = dragStartX - e.pageX;
-    if (Math.abs(diff) > 40) {
-      if (diff > 0) next(); else prev();
-    }
+  if (dotsBox) {
+    dotsBox.querySelectorAll('.cert-dot').forEach(function (dot, i) {
+      dot.addEventListener('click', function () { goTo(i); });
+    });
+  }
+
+  // Свайп и драг: один порог для мыши и тача
+  var startX = null;
+  stage.addEventListener('pointerdown', function (e) { startX = e.clientX; });
+  window.addEventListener('pointerup', function (e) {
+    if (startX === null) return;
+    var diff = startX - e.clientX;
+    startX = null;
+    if (Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+  });
+  stage.querySelectorAll('img').forEach(function (img) { img.draggable = false; });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
   });
 
-  calcSizes();
+  measure();
+  render();
 
-  var resizeTimer;
+  var t;
   window.addEventListener('resize', function () {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(calcSizes, 150);
+    clearTimeout(t);
+    t = setTimeout(function () { measure(); render(); }, 150);
   });
-
 })();
